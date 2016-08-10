@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GoogleApi</title>
+    <%= csrf_meta_tags %>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+      <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo"><i class="material-icons">mail</i></a>
+      <ul class="right hide-on-med-and-down">
+        <% if current_user %>
+          <li><div style="padding-top: 7px;"><%= image_tag(current_user.image, size: "25x25") %></div></li>
+          <li>&nbsp; <%= current_user.name %></li>
+          <li>  <%= link_to "Logout", signout_path %> </li>
+        <% end %>
+        
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  <header></header>
+ 
+    <main class="main">
+      <div class="container" style="padding-top: 20px;">
+    <%= yield %>
+    </div>
+    </main>
+   
+     <footer class="page-footer orange" style="padding-top: 0px;">
+    <div class="footer-copyright orange">
+      <div class="container orange">
+      Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Ced</a>
+      </div>
+    </div>
+  </footer>
+  </body>
+</html>

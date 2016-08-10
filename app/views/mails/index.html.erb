@@ -1,0 +1,62 @@
+
+<%= link_to '<i class="material-icons right">mode_edit</i>Compose'.html_safe, new_mail_path, class: "waves-effect waves-light btn right" %>
+  
+  <br>
+  </br>
+    
+  <br>
+  </br>
+  <nav>
+    <div class="nav-wrapper">
+      <form>
+        <div class="input-field">
+          <input id="search" type="search" required>
+          <label for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
+        </div>
+      </form>
+    </div>
+  </nav>
+  
+  <br>
+  <br>
+ 
+ <table class="highlight">
+        <thead>
+          <tr>
+              <th data-field="id">FROM</th>
+              <th data-field="name">SUBJECT</th>
+              <th data-field="price">DATE</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @mails.each do |email| %>
+          <tr>
+    
+            <td><%= email.message.from.first %></td>
+            <td><%= link_to email.message.subject, mail_path(:uid => email.uid), method: :get %></td>
+            <td><%= email.message.date.in_time_zone("Asia/Manila").strftime("%m/%d/%Y at %I:%M%p") %></td>
+            
+          </tr>
+          <% end %>
+          
+        </tbody>
+      </table>
+      
+      <ul class="pagination center">
+              <%= paginate @mails %>
+
+      </ul>
+
+  
+  
+  
+  <div>
+    
+     
+     <br></br>
+     
+     <br> </br>
+    
+     

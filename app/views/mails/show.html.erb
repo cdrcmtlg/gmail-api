@@ -1,0 +1,23 @@
+FROM: 
+<br>
+<br>
+<%= @mail[0].message.from.first %>
+<br>
+<br>
+SUBJECT: 
+<br>
+<br>
+<%= @mail[0].message.subject %>
+<br>
+<br>
+MESSAGE: 
+<br>
+<br>
+<% if @mail[0].message.parts.blank? %>
+  <%= auto_link(@mail[0].message.decoded.html_safe) %>
+<% else %>
+  <%= @mail[0].message.html_part.decoded.html_safe %>
+<% end %>
+
+<br>
+<br>

@@ -1,0 +1,21 @@
+
+<%= form_tag("/send", method: "post") do %>
+<div class="input-field">
+  <%= label_tag(:to, "TO:") %>
+  <%= text_field_tag(:to) %>
+</div>
+
+<div class="input-field">
+   <%= label_tag(:subject, "SUBJECT:") %>
+  <%= text_field_tag(:subject) %>
+</div>
+
+<div class="input-field">  
+  <%= label_tag(:body, "MESSAGE:") %>
+  <%= text_area_tag(:body, nil, id: "textarea1", class: "materialize-textarea") %>
+</div>
+  <%= button_tag(type: "submit", class: "waves-effect waves-light btn right") do %>
+    SEND <i class="material-icons right">send</i>
+  <% end %>
+        
+<% end %>
